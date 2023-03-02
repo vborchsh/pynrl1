@@ -5,13 +5,13 @@
     - [x] SSS
     - [x] Indices
 
-- [] Mapper
-    - [] BPSK pi/2
-    - [] BPSK
+- [x] Mapper
+    - [x] BPSK pi/2
+    - [x] BPSK
     - [x] QPSK
-    - [] QAM16
-    - [] QAM64
-    - [] QAM256
+    - [x] QAM16
+    - [x] QAM64
+    - [x] QAM256
 
 - [] PDCCH
     - [] DCI encoding
