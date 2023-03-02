@@ -1,4 +1,6 @@
 
+# 38.211 5.2.1 Pseudo-random sequence generation
+
 import numpy as np
 
 def nr_prbs(cinit, n):

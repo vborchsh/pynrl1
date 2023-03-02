@@ -1,4 +1,6 @@
 
+# 38.211 5.1 Modulation mapper
+
 import numpy as np
 
 def nr_mapper(databits, modtype):

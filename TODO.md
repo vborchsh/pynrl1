@@ -5,24 +5,14 @@
     - [x] SSS
     - [x] Indices
 
-- [x] Mapper
-    - [x] BPSK pi/2
-    - [x] BPSK
-    - [x] QPSK
-    - [x] QAM16
-    - [x] QAM64
-    - [x] QAM256
-
 - [] PDCCH
     - [] DCI encoding
-        - [] CRC
-        - [] Polar encoder
         - [] Rate matching
     - [] DMRS
+        - [] Indices
     - [] Indices
 
 - [] PDSCH
-    - [] LDPC encoding
     - [] Rate matching
     - [] DMRS
     - [] PTRS
@@ -49,7 +39,22 @@
 
 ## Utils
 - [x] PRBS
-- [] Carrier grid
-- [] Spectrum viewer
-- [] AWGN channel
-- [] Rayleign channel
+- [] Channels CRC
+- [] Polar codec
+    - [] encoder
+    - [] decoder
+- [] LDPC codec
+    - [] encoder
+    - [] decoder
+- [] ? Carrier grid
+- [] ? Spectrum viewer
+- [] ? Channels
+    - [] AWGN
+    - [] Rayleign
+- [x] Mapper
+    - [x] BPSK pi/2
+    - [x] BPSK
+    - [x] QPSK
+    - [x] QAM16
+    - [x] QAM64
+    - [x] QAM256

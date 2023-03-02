@@ -1,4 +1,6 @@
 
+# 38.211 7.4.3 SS/PBCH block
+
 import numpy as np
 
 from pynrl1.util.nr_prbs import nr_prbs
