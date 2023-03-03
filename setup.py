@@ -4,7 +4,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setup(
-    name="vloginit",
+    name="pynrl1",
     version="0.0.1",
     author="Vladislav Borshch",
     author_email="borchsh.vn@mail.com",
