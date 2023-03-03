@@ -18,17 +18,9 @@
     - [] PTRS
     - [] HARQ combining
 
-- [] Modulation
-    - [] IFFT + CP
-    - [] Windowing
-    - [] Filtering
-
-
 ## Uplink
 
 - [] Demodulation
-    - [] Filtering
-    - [] FFT - CP
 
 - [] PUCCH
 
@@ -37,7 +29,11 @@
 - [] PUSCH
 
 
-## Utils
+## Misc
+- [] FIR filters
+- [] CIC filters
+- [] Windowing
+- [] FFT +- CP
 - [x] PRBS
 - [] Channels CRC
 - [] Polar codec
