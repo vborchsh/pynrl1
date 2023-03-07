@@ -1,7 +1,6 @@
 
 import numpy as np
 
-
 def nr_pss(ncellid):
 
     assert ncellid >= 0

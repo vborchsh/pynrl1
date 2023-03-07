@@ -1,3 +1,6 @@
 __pycache__
 .spyproject/
 .pytest_cache
+build/
+*.egg-info
+*.egg
