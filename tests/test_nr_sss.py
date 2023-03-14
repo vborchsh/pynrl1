@@ -19,7 +19,7 @@ def run_nr_sss(ncellid, eng):
     assert (ref_data == data).all()
     assert (indices == ref_ind).all()
 
-@pytest.mark.parametrize("ncellid", [1, 500, 1007])
+@pytest.mark.parametrize("ncellid", [1, 600, 1007])
 def test_nr_sss(ncellid):
     eng = matlab.engine.connect_matlab()
 

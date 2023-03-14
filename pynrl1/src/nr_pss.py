@@ -25,7 +25,11 @@ def nr_pss(ncellid):
         0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0
     ])
 
-    n2 = ncellid % 3
-    shift = 43*n2
+    shift = nr_pss_v(ncellid)
 
     return [np.array(range(56, 183)), pss_precomp[shift:(shift+127)]]
+
+
+def nr_pss_v(ncellid):
+    n2 = ncellid % 3
+    return 43*n2
