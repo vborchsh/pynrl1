@@ -21,7 +21,7 @@ def run_nr_pbch_dmrs(ncellid, issb, eng):
     assert (ref_data == data).all()
     assert (ref_ind == indices).all()
 
-@pytest.mark.parametrize("ncellid", [1, 500, 1007])
+@pytest.mark.parametrize("ncellid", [0, 500, 1007])
 @pytest.mark.parametrize("issb", list(range(8)))
 def test_nr_pbch_dmrs(ncellid, issb):
     eng = matlab.engine.connect_matlab()

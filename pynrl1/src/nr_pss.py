@@ -3,8 +3,7 @@ import numpy as np
 
 def nr_pss(ncellid):
 
-    assert ncellid >= 0
-    assert ncellid <= 1007
+    assert ncellid <= 1007 and ncellid >= 0
 
     # Double-repeated precomputed table
     pss_precomp = np.array([

@@ -3,8 +3,7 @@ import numpy as np
 
 def nr_sss(ncellid):
 
-    assert ncellid >= 0
-    assert ncellid <= 1007
+    assert ncellid <= 1007 and ncellid >= 0
 
     sss_precomp0 = np.array([
         0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1, 0,

@@ -14,7 +14,7 @@ def run_nr_prbs(cinit, size, eng):
 
     assert (ref_data == data).all()
 
-@pytest.mark.parametrize("cinit", [1, 100, 1245345, 534667868])
+@pytest.mark.parametrize("cinit", [0, 100, 1245345, 534667868])
 @pytest.mark.parametrize("size", [1024, 8192])
 def test_nr_prbs(cinit, size):
     eng = matlab.engine.connect_matlab()

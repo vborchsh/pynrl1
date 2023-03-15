@@ -8,10 +8,11 @@ from pynrl1.util.nr_mapper import nr_mapper
 
 def nr_pbch(ncellid, v, databits):
 
+    n = len(databits)
+
     assert ncellid <= 1007 and ncellid >= 0
     assert v >= 0 and v <= 7
-
-    n = len(databits)
+    assert n > 0
 
     # Scrambling, Section 7.3.3.1, TS 38.211
     prbs_bits = nr_prbs(ncellid, v*n+n)

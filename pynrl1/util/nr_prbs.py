@@ -5,7 +5,6 @@ import numpy as np
 
 def nr_prbs(cinit, n):
 
-    assert cinit > 0
     assert n > 0
 
     # 9 = [1 0 0 1], 15 = [1 1 1 1] (both arranged msb->lsb)
