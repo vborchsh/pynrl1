@@ -3,7 +3,7 @@ import itertools
 import numpy as np
 import pytest
 
-from pynrl1.src.nr_pbch import nr_pbch
+from pynrl1.downlink.nr_pbch import nr_pbch
 
 def run_nr_pbch(ncellid, databits, v, eng):
     ref_data = eng.nrPBCH(databits, matlab.double(ncellid), matlab.double(v), nargout=1)

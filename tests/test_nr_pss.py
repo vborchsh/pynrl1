@@ -3,7 +3,7 @@ import itertools
 import numpy as np
 import pytest
 
-from pynrl1.src.nr_pss import nr_pss
+from pynrl1.downlink.nr_pss import nr_pss
 
 def run_nr_pss(ncellid, eng):
     ref_data = eng.nrPSS(matlab.double(ncellid))

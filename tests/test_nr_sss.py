@@ -3,7 +3,7 @@ import itertools
 import numpy as np
 import pytest
 
-from pynrl1.src.nr_sss import nr_sss
+from pynrl1.downlink.nr_sss import nr_sss
 
 def run_nr_sss(ncellid, eng):
     ref_data = eng.nrSSS(matlab.double(ncellid))

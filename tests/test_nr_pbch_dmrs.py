@@ -3,7 +3,7 @@ import itertools
 import numpy as np
 import pytest
 
-from pynrl1.src.nr_pbch_dmrs import nr_pbch_dmrs
+from pynrl1.downlink.nr_pbch_dmrs import nr_pbch_dmrs
 
 def run_nr_pbch_dmrs(ncellid, issb, eng):
     ref_data = eng.nrPBCHDMRS(matlab.double(ncellid), matlab.double(issb))
