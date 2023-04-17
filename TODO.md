@@ -1,3 +1,14 @@
+## Legend
+
+[x] - implemented
+
+[.] - partially implemented
+
+[?] - optional
+
+[ ] - not implemented
+
+
 ## Downlink
 
 - [x] PBCH
@@ -14,9 +25,13 @@
 
 - [ ] PDSCH
     - [ ] Rate matching
+    - [ ] Indices
     - [ ] DMRS
+        - [.] Data
+        - [.] Indices
     - [ ] PTRS
-    - [ ] HARQ combining
+        - [ ] Data
+        - [ ] Indices
 
 ## Uplink
 
@@ -36,6 +51,7 @@
     - [ ] Windowing
     - [ ] FFT +- CP
 - [x] PRBS
+- [ ] TB CRC
 - [ ] Channels CRC
 - [ ] Polar codec
     - [ ] encoder
@@ -43,9 +59,9 @@
 - [ ] LDPC codec
     - [ ] encoder
     - [ ] decoder
-- [ ] ? Carrier grid
-- [ ] ? Spectrum viewer
-- [ ] ? Channels
+- [?] Carrier grid
+- [?] Spectrum viewer
+- [?] Channels
     - [ ] AWGN
     - [ ] Rayleign
 - [x] Mapper
