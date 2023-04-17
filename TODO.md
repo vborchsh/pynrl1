@@ -27,7 +27,7 @@
     - [ ] Rate matching
     - [ ] Indices
     - [ ] DMRS
-        - [ ] Data
+        - [.] Data
         - [.] Indices
     - [ ] PTRS
         - [ ] Data
