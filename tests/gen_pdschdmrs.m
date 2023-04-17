@@ -1,4 +1,4 @@
-function [dmrsIndices] = gen_pdschdmrs(cfg)
+function [dmrsSymbols, dmrsIndices] = gen_pdschdmrs(cfg)
 %     cfg
 
     carrier = nrCarrierConfig;
@@ -26,16 +26,6 @@ function [dmrsIndices] = gen_pdschdmrs(cfg)
 
     % Generate DM-RS indices
     dmrsSymbols = nrPDSCHDMRS(carrier, pdsch);
-    dmrsIndices = nrPDSCHDMRSIndices(carrier,pdsch);
-    % dmrsIndices(1:8)
-    % dmrsIndices(end-8:end)
-    grid = zeros([12*carrier.NSizeGrid carrier.SymbolsPerSlot pdsch.NumLayers]);
-    % grid(dmrsIndices) = dmrsSymbols;
-    % figure
-    % imagesc(abs(grid(:,:,1)));
-    % axis xy;
-    % xlabel('OFDM Symbols');
-    % ylabel('Subcarriers');
-    % title('DM-RS Time-Frequency Locations');
+    dmrsIndices = nrPDSCHDMRSIndices(carrier, pdsch);
 end
 
