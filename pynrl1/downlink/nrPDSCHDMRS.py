@@ -8,7 +8,7 @@ from pynrl1.util.nr_mapper import nr_mapper
 from pynrl1.util.configurations import nrPDSCH_config
 from pynrl1.util.configurations import nrCarrier_config
 
-def nr_pdschdmrs(cfg: nrPDSCH_config, carrier: nrCarrier_config):
+def nrPDSCHDMRS(cfg: nrPDSCH_config, carrier: nrCarrier_config):
     if cfg.dmrs_conf_type == 1:
         n_dmrs_per_re = 6
     else:
@@ -27,7 +27,7 @@ def nr_pdschdmrs(cfg: nrPDSCH_config, carrier: nrCarrier_config):
     dmrs_syms = np.array([])
     for n_symb in occupied_syms:
         cinit_dmrs = nr_pdschdmrs_cinit(carrier.symbols_per_slot, carrier.n_slot, n_symb, cfg.dmrs_NIDNSCID, n_scid)
-        dmrs_prbs = nr_prbs(cinit_dmrs, dmrs_size )
+        dmrs_prbs = nr_prbs(cinit_dmrs, dmrs_size)
 
         # Cut PRBS sequency
         dmrs_prbs = dmrs_prbs[dmrs_begin:dmrs_end]
@@ -47,7 +47,7 @@ def pdschdmrs_occ_symbols(typeA_pos, sym_alloc, add_pos):
     elif sym_alloc in [10, 11]:
         if add_pos == 1:
             occupied_syms = np.append(occupied_syms, 9)
-        if add_pos == 2 or add_pos == 3:
+        elif add_pos == 2 or add_pos == 3:
             occupied_syms = np.append(occupied_syms, [6, 9])
     elif sym_alloc == 12:
         if add_pos == 1:
@@ -66,4 +66,4 @@ def pdschdmrs_occ_symbols(typeA_pos, sym_alloc, add_pos):
     return occupied_syms
 
 def nr_pdschdmrs_cinit(sps, n_slot, n_symb, NIDSCID, n_scid):
-    return (1 << 17) * (sps * n_slot + n_symb + 1) * ((NIDSCID << 1) + 1) + ((NIDSCID << 1) + n_scid)
+    return 2**17 * (sps * n_slot + n_symb + 1) * (2*NIDSCID + 1) + 2*NIDSCID + n_scid

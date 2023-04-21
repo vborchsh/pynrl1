@@ -3,8 +3,8 @@
 
 import numpy as np
 
-def nr_mapper(databits, modtype):
-    int_modtype = modtype.lower()
+def nrSymbolModulate(databits, modulation):
+    int_modtype = modulation.lower()
 
     assert int_modtype in ['bpsk_pi2', 'bpsk', 'qpsk', 'qam16', 'qam64', 'qam256'], "modulation type is incorrect"
     assert len(databits) > 0, "length of databits must be greater 0"

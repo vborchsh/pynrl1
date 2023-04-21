@@ -1,7 +1,7 @@
 
 import numpy as np
 
-def nr_sss(ncellid):
+def nrSSS(ncellid):
 
     assert ncellid <= 1007 and ncellid >= 0
 

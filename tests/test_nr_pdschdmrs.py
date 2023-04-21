@@ -1,4 +1,5 @@
 import matlab.engine
+import os
 import itertools
 import numpy as np
 import pytest
@@ -45,6 +46,7 @@ def run_nr_pdschdmrs(cfg, eng):
 @pytest.mark.parametrize('dmrs_cfg_type', [1, 2])
 def test_nr_pdschdmrs(symb_alloc, dmrs_add_pos, typeA_pos, PRBSet, dmrs_cfg_type):
     eng = matlab.engine.connect_matlab()
+    eng.cd(os.path.dirname(__file__))
 
     cfg = {}
     cfg['n_size_bwp'] = 132

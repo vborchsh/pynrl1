@@ -6,7 +6,7 @@ import numpy as np
 from pynrl1.downlink.nr_pdschdmrs import pdschdmrs_occ_symbols
 from pynrl1.util.configurations import nrPDSCH_config
 
-def nr_pdschdmrs_indices(cfg: nrPDSCH_config):
+def nrPDSCHDMRSindices(cfg: nrPDSCH_config):
     frame_begin = cfg.n_rb_size * min(cfg.PRB_set)
     frame_end = cfg.n_rb_size * (max(cfg.PRB_set)+1)
     frame_size = cfg.n_rb_size * cfg.n_size_bwp
