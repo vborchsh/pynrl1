@@ -24,7 +24,6 @@ def nr_pdschdmrs_indices(cfg: nrPDSCH_config):
 
     # Calculates occupied symbols numbers. Time positions
     occupied_syms = pdschdmrs_occ_symbols(cfg.dmrs_typeA_pos, cfg.symbol_allocation[1], cfg.dmrs_additional_pos)
-    print(occupied_syms)
 
     dmrs_indices = np.array([])
     for idx, sym in enumerate(occupied_syms):
