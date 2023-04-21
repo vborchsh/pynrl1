@@ -35,6 +35,9 @@ def run_nr_pdschdmrs(cfg, eng):
     [pdschdmrs_syms_ref, pdschdmrs_indices_ref] = eng.gen_pdschdmrs(cfg, nargout=2)
     pdschdmrs_syms_ref = np.array(list(itertools.chain(*pdschdmrs_syms_ref)))
 
+    pdschdmrs_indices_ref = np.array(list(itertools.chain(*pdschdmrs_indices_ref)))
+    pdschdmrs_indices_ref = pdschdmrs_indices_ref - 1
+
     pdschdmrs_syms = np.around(pdschdmrs_syms, 4)
     pdschdmrs_syms_ref = np.around(pdschdmrs_syms_ref, 4)
 

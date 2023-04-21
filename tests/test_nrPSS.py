@@ -15,11 +15,12 @@ def run_nr_pss(ncellid, eng):
     ref_ind = np.array(ref_ind - 1)
 
     data = nrPSS(ncellid)
-    indices = nrPSSIndices(ncellid)
     data = [(x*2)-1 for x in data]
 
-    assert (ref_data == data).all()
-    assert (indices == ref_ind).all()
+    indices = nrPSSIndices(ncellid)
+
+    assert np.all(ref_data == data)
+    assert np.all(indices == ref_ind)
 
 @pytest.mark.parametrize("ncellid", [0, 500, 1007])
 def test_nr_pss(ncellid):

@@ -26,7 +26,7 @@ def nrPSS(ncellid):
 
     shift = nr_pss_v(ncellid)
 
-    return [np.array(range(56, 183)), pss_precomp[shift:(shift+127)]]
+    return pss_precomp[shift:(shift+127)]
 
 
 def nr_pss_v(ncellid):
