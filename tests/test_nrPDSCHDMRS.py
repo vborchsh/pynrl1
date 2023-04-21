@@ -4,18 +4,19 @@ import itertools
 import numpy as np
 import pytest
 
-from pynrl1.downlink.nr_pdschdmrs import nr_pdschdmrs
-from pynrl1.util.configurations import nrPDSCH_config
-from pynrl1.util.configurations import nrCarrier_config
+from pynrl1.downlink.nrPDSCHDMRS import nrPDSCHDMRS
+from pynrl1.downlink.nrPDSCHDMRSIndices import nrPDSCHDMRSIndices
+from pynrl1.util.nrPDSCHConfig import nrPDSCHConfig
+from pynrl1.util.nrCarrierConfig import nrCarrierConfig
 
 def run_nr_pdschdmrs(cfg, eng):
-    carrier = nrCarrier_config();
+    carrier = nrCarrierConfig();
     carrier.subcarrier_spacing = 120;
     carrier.cyclic_prefix = 'normal';
     carrier.n_size_grid = 132;
     carrier.n_start_grid = 0;
 
-    pdsch_cfg = nrPDSCH_config();
+    pdsch_cfg = nrPDSCHConfig();
     pdsch_cfg.n_size_bwp = cfg['n_size_bwp']
     pdsch_cfg.n_start_bwp = cfg['n_start_bwp']
     pdsch_cfg.mapping_type = cfg['MappingType']
@@ -28,7 +29,8 @@ def run_nr_pdschdmrs(cfg, eng):
     pdsch_cfg.PRB_set = cfg['PRBSet']
     pdsch_cfg.symbol_allocation = cfg['SymbolAllocation']
 
-    pdschdmrs_syms = nr_pdschdmrs(pdsch_cfg, carrier)
+    pdschdmrs_syms = nrPDSCHDMRS(pdsch_cfg, carrier)
+    pdschdmrs_indices = nrPDSCHDMRSIndices(pdsch_cfg)
 
     [pdschdmrs_syms_ref, pdschdmrs_indices_ref] = eng.gen_pdschdmrs(cfg, nargout=2)
     pdschdmrs_syms_ref = np.array(list(itertools.chain(*pdschdmrs_syms_ref)))
@@ -37,6 +39,7 @@ def run_nr_pdschdmrs(cfg, eng):
     pdschdmrs_syms_ref = np.around(pdschdmrs_syms_ref, 4)
 
     assert np.array_equal(pdschdmrs_syms, pdschdmrs_syms_ref)
+    assert np.array_equal(pdschdmrs_indices, pdschdmrs_indices_ref)
 
 
 @pytest.mark.parametrize('typeA_pos', [2, 3])

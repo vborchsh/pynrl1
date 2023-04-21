@@ -1,6 +1,6 @@
 import numpy as np
-from pynrl1.util.nr_prbs import nr_prbs
-from pynrl1.util.nr_mapper import nr_mapper
+from pynrl1.util.nrPRBS import nrPRBS
+from pynrl1.util.nrSymbolModulate import nrSymbolModulate
 
 def nrPBCHDMRS(ncellid, issb):
     assert ncellid >= 0 and ncellid <= 1007
@@ -8,10 +8,10 @@ def nrPBCHDMRS(ncellid, issb):
 
     # Get DMRS sequence
     cinit = nr_pbch_dmrs_cinit(issb, ncellid)
-    prbs = nr_prbs(cinit, 2*144)
+    prbs = nrPRBS(cinit, 2*144)
 
     # Convert sequence to symbols and merge with indices
-    return nr_mapper(prbs, 'qpsk')
+    return nrSymbolModulate(prbs, 'qpsk')
 
 
 def nr_pbch_dmrs_cinit(issb, ncellid):

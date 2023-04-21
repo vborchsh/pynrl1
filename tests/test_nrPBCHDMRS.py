@@ -3,7 +3,8 @@ import itertools
 import numpy as np
 import pytest
 
-from pynrl1.downlink.nr_pbch_dmrs import nr_pbch_dmrs
+from pynrl1.downlink.nrPBCHDMRS import nrPBCHDMRS
+from pynrl1.downlink.nrPBCHDMRSIndices import nrPBCHDMRSIndices
 
 def run_nr_pbch_dmrs(ncellid, issb, eng):
     ref_data = eng.nrPBCHDMRS(matlab.double(ncellid), matlab.double(issb))
@@ -13,13 +14,14 @@ def run_nr_pbch_dmrs(ncellid, issb, eng):
     ref_ind = np.array(list(itertools.chain(*ref_ind)))
     ref_ind = np.array(ref_ind - 1)
 
-    [indices, data] = nr_pbch_dmrs(ncellid, issb)
+    data = nrPBCHDMRS(ncellid, issb)
+    indices = nrPBCHDMRSIndices(ncellid)
 
     ref_data = np.around(ref_data, 4)
     data = np.around(data, 4)
 
-    assert (ref_data == data).all()
-    assert (ref_ind == indices).all()
+    assert np.all(ref_data == data)
+    assert np.all(ref_ind == indices)
 
 @pytest.mark.parametrize("ncellid", [0, 500, 1007])
 @pytest.mark.parametrize("issb", list(range(8)))

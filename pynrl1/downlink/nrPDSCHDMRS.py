@@ -3,12 +3,12 @@
 
 import numpy as np
 
-from pynrl1.util.nr_prbs import nr_prbs
-from pynrl1.util.nr_mapper import nr_mapper
-from pynrl1.util.configurations import nrPDSCH_config
-from pynrl1.util.configurations import nrCarrier_config
+from pynrl1.util.nrPRBS import nrPRBS
+from pynrl1.util.nrSymbolModulate import nrSymbolModulate
+from pynrl1.util.nrPDSCHConfig import nrPDSCHConfig
+from pynrl1.util.nrCarrierConfig import nrCarrierConfig
 
-def nrPDSCHDMRS(cfg: nrPDSCH_config, carrier: nrCarrier_config):
+def nrPDSCHDMRS(cfg: nrPDSCHConfig, carrier: nrCarrierConfig):
     if cfg.dmrs_conf_type == 1:
         n_dmrs_per_re = 6
     else:
@@ -27,11 +27,11 @@ def nrPDSCHDMRS(cfg: nrPDSCH_config, carrier: nrCarrier_config):
     dmrs_syms = np.array([])
     for n_symb in occupied_syms:
         cinit_dmrs = nr_pdschdmrs_cinit(carrier.symbols_per_slot, carrier.n_slot, n_symb, cfg.dmrs_NIDNSCID, n_scid)
-        dmrs_prbs = nr_prbs(cinit_dmrs, dmrs_size)
+        dmrs_prbs = nrPRBS(cinit_dmrs, dmrs_size)
 
         # Cut PRBS sequency
         dmrs_prbs = dmrs_prbs[dmrs_begin:dmrs_end]
-        dmrs_syms = np.append(dmrs_syms, nr_mapper(dmrs_prbs, "QPSK"))
+        dmrs_syms = np.append(dmrs_syms, nrSymbolModulate(dmrs_prbs, "QPSK"))
 
     return dmrs_syms
 

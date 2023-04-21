@@ -3,7 +3,8 @@ import itertools
 import numpy as np
 import pytest
 
-from pynrl1.downlink.nr_pbch import nr_pbch
+from pynrl1.downlink.nrPBCH import nrPBCH
+from pynrl1.downlink.nrPBCHIndices import nrPBCHIndices
 
 def run_nr_pbch(ncellid, databits, v, eng):
     ref_data = eng.nrPBCH(databits, matlab.double(ncellid), matlab.double(v), nargout=1)
@@ -14,7 +15,8 @@ def run_nr_pbch(ncellid, databits, v, eng):
     ref_indices = np.array(list(itertools.chain(*ref_indices)))
     ref_indices = [x-1 for x in ref_indices]
 
-    indices, data = nr_pbch( ncellid, v, np.array(list(itertools.chain(*databits)), dtype=(int)) )
+    indices = nrPBCHIndices(ncellid)
+    data = nrPBCH( ncellid, v, np.array(list(itertools.chain(*databits)), dtype=(int)) )
 
     ref_data = np.around(ref_data, 4)
     data = np.around(data, 4)

@@ -3,7 +3,7 @@ import numpy as np
 import pytest
 import itertools
 
-from pynrl1.util.nr_mapper import nr_mapper
+from pynrl1.util.nrSymbolModulate import nrSymbolModulate
 
 def get_bin_symbols(bps, symbols):
     databits = np.array(list(range(symbols)))
@@ -14,32 +14,32 @@ def run_nr_mapper(eng, modtype):
     if modtype == 'bpsk':
         databits = get_bin_symbols(1, 2)
         ref_data = eng.nrSymbolModulate(eng.transpose(eng.logical(databits)), "BPSK")
-        data = nr_mapper(databits, modtype)
+        data = nrSymbolModulate(databits, modtype)
 
     elif modtype == 'bpsk_pi2':
         databits = get_bin_symbols(1, 2)
         ref_data = eng.nrSymbolModulate(eng.transpose(eng.logical(databits)), "pi/2-BPSK")
-        data = nr_mapper(databits, modtype)
+        data = nrSymbolModulate(databits, modtype)
 
     elif modtype == 'qpsk':
         databits = get_bin_symbols(2, 4)
         ref_data = eng.nrSymbolModulate(eng.transpose(eng.logical(databits)), "QPSK")
-        data = nr_mapper(databits, modtype)
+        data = nrSymbolModulate(databits, modtype)
 
     elif modtype == 'qam16':
         databits = get_bin_symbols(4, 16)
         ref_data = eng.nrSymbolModulate(eng.transpose(eng.logical(databits)), "16QAM")
-        data = nr_mapper(databits, modtype)
+        data = nrSymbolModulate(databits, modtype)
 
     elif modtype == 'qam64':
         databits = get_bin_symbols(6, 64)
         ref_data = eng.nrSymbolModulate(eng.transpose(eng.logical(databits)), "64QAM")
-        data = nr_mapper(databits, modtype)
+        data = nrSymbolModulate(databits, modtype)
 
     elif modtype == 'qam256':
         databits = get_bin_symbols(8, 256)
         ref_data = eng.nrSymbolModulate(eng.transpose(eng.logical(databits)), "256QAM")
-        data = nr_mapper(databits, modtype)
+        data = nrSymbolModulate(databits, modtype)
 
     ref_data = np.around(np.array(list(itertools.chain(*ref_data))), 4)
     data = np.around(data, 4)

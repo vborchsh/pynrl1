@@ -3,7 +3,8 @@ import itertools
 import numpy as np
 import pytest
 
-from pynrl1.downlink.nr_pss import nr_pss
+from pynrl1.downlink.nrPSS import nrPSS
+from pynrl1.downlink.nrPSSIndices import nrPSSIndices
 
 def run_nr_pss(ncellid, eng):
     ref_data = eng.nrPSS(matlab.double(ncellid))
@@ -13,7 +14,8 @@ def run_nr_pss(ncellid, eng):
     ref_ind = np.array(list(itertools.chain(*ref_ind)))
     ref_ind = np.array(ref_ind - 1)
 
-    [indices, data] = nr_pss(ncellid)
+    data = nrPSS(ncellid)
+    indices = nrPSSIndices(ncellid)
     data = [(x*2)-1 for x in data]
 
     assert (ref_data == data).all()

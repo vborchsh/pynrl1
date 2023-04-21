@@ -3,7 +3,7 @@
 
 import numpy as np
 
-def nr_prbs(cinit, n):
+def nrPRBS(cinit, n):
 
     assert n > 0
 

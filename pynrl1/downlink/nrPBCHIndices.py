@@ -3,7 +3,7 @@
 
 import numpy as np
 
-def nrPBCHindices(ncellid):
+def nrPBCHIndices(ncellid):
     assert ncellid <= 1007 and ncellid >= 0
 
     # Indices with windows for SSB

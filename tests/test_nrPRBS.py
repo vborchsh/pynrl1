@@ -3,14 +3,14 @@ import itertools
 import numpy as np
 import pytest
 
-from pynrl1.util.nr_prbs import nr_prbs
+from pynrl1.util.nrPRBS import nrPRBS
 
 def run_nr_prbs(cinit, size, eng):
     ref_data = eng.nrPRBS(matlab.double(cinit), matlab.double(size))
     ref_data = list(itertools.chain(*ref_data))
     ref_data = np.array([x*1 for x in ref_data])
 
-    data = nr_prbs(cinit, size)
+    data = nrPRBS(cinit, size)
 
     assert (ref_data == data).all()
 

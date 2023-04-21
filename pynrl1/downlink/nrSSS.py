@@ -50,7 +50,7 @@ def nrSSS(ncellid):
     seq1 = sss_precomp1[shift1:(shift1+127)]
 
     # XNOR
-    return [480+np.array(range(56, 183)), np.invert(np.logical_xor(seq0, seq1))*1]
+    return np.invert(np.logical_xor(seq0, seq1))*1
 
 
 def nr_sss_m0(ncellid):

@@ -1,8 +1,7 @@
 import numpy as np
 
-def nrPBCHDMRSindices(ncellid, issb):
+def nrPBCHDMRSIndices(ncellid):
     assert ncellid >= 0 and ncellid <= 1007
-    assert issb >= 0 and issb <= 7
 
     # Indices with window for SSS
     K = 240

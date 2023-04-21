@@ -3,7 +3,8 @@ import itertools
 import numpy as np
 import pytest
 
-from pynrl1.downlink.nr_sss import nr_sss
+from pynrl1.downlink.nrSSS import nrSSS
+from pynrl1.downlink.nrSSSIndices import nrSSSIndices
 
 def run_nr_sss(ncellid, eng):
     ref_data = eng.nrSSS(matlab.double(ncellid))
@@ -13,7 +14,8 @@ def run_nr_sss(ncellid, eng):
     ref_ind = np.array(list(itertools.chain(*ref_ind)))
     ref_ind = np.array(ref_ind - 1)
 
-    [indices, data] = nr_sss(ncellid)
+    data = nrSSS(ncellid)
+    indices = nrSSSIndices()
     data = [(x*2)-1 for x in data]
 
     assert (ref_data == data).all()
