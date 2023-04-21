@@ -1,7 +1,7 @@
 
 import numpy as np
 
-def nr_pss(ncellid):
+def nrPSS(ncellid):
 
     assert ncellid <= 1007 and ncellid >= 0
 
@@ -26,7 +26,7 @@ def nr_pss(ncellid):
 
     shift = nr_pss_v(ncellid)
 
-    return [np.array(range(56, 183)), pss_precomp[shift:(shift+127)]]
+    return pss_precomp[shift:(shift+127)]
 
 
 def nr_pss_v(ncellid):

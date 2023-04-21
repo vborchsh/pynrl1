@@ -3,10 +3,10 @@
 
 import numpy as np
 
-from pynrl1.downlink.nr_pdschdmrs import pdschdmrs_occ_symbols
-from pynrl1.util.configurations import nrPDSCH_config
+from pynrl1.downlink.nrPDSCHDMRS import pdschdmrs_occ_symbols
+from pynrl1.util.nrPDSCHConfig import nrPDSCHConfig
 
-def nr_pdschdmrs_indices(cfg: nrPDSCH_config):
+def nrPDSCHDMRSIndices(cfg: nrPDSCHConfig):
     frame_begin = cfg.n_rb_size * min(cfg.PRB_set)
     frame_end = cfg.n_rb_size * (max(cfg.PRB_set)+1)
     frame_size = cfg.n_rb_size * cfg.n_size_bwp
@@ -24,7 +24,6 @@ def nr_pdschdmrs_indices(cfg: nrPDSCH_config):
 
     # Calculates occupied symbols numbers. Time positions
     occupied_syms = pdschdmrs_occ_symbols(cfg.dmrs_typeA_pos, cfg.symbol_allocation[1], cfg.dmrs_additional_pos)
-    print(occupied_syms)
 
     dmrs_indices = np.array([])
     for idx, sym in enumerate(occupied_syms):

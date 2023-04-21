@@ -29,6 +29,7 @@
     - [ ] DMRS
         - [.] Data
         - [.] Indices
+        - [ ] Double-symbol DMRS
     - [ ] PTRS
         - [ ] Data
         - [ ] Indices
