@@ -1,5 +1,5 @@
 
 import numpy as np
 
-def nrPSSIndices(ncellid):
+def nrPSSIndices():
     return np.array(range(56, 183))
