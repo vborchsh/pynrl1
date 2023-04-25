@@ -1,3 +1,5 @@
+# ! Deprecated. Everything moved to: https://github.com/vborchsh/py3gpp
+
 # pynrl1
 
 L1 5G NR 3GPP Python implementation.
